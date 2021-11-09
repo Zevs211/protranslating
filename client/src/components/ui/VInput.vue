@@ -8,7 +8,7 @@
       focus:border-gray-400
       px-2
       py-1
-      w-full
+      w-auto
     "
     :value="value"
     :placeholder="placeholder"

@@ -11,16 +11,18 @@
       <tr
         v-for="(row, rowIndex) in rows"
         :key="row._id"
-        @click="selectRow(row)"
-        class="transition-colors hover:bg-blue-300 cursor-pointer"
+        class="transition-colors hover:bg-blue-300 border border-blue-300"
         :class="[{ 'bg-blue-200': rowIndex % 2 === 0 }]"
       >
         <td
-          class="border border-blue-300 px-4 py-1"
+          class="border border-blue-300"
           v-for="(cell, cellIndex) in headers"
           :key="`${rowIndex}-${cellIndex}`"
         >
           {{ getCellValue(row, cell) }}
+        </td>
+        <td class="flex justify-center my-2">
+          <v-button @click.native="selectRow(row)">Edit</v-button>
         </td>
       </tr>
     </tbody>
@@ -28,8 +30,13 @@
 </template>
 
 <script>
+import VButton from './ui/VButton.vue'
+
 export default {
   name: 'VTable',
+  components: {
+    VButton
+  },
   props: {
     headers: {
       type: Array,

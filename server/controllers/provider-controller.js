@@ -12,7 +12,6 @@ class ProviderController {
   async getAll(req, res) {
     try {
       const providers = await providerSchema.find().exec()
-      console.log(providers)
       return res.json(providers)
     } catch (e) {
       res.status(500).json(e.message)
@@ -29,11 +28,12 @@ class ProviderController {
   }
   async update(req, res) {
     try {
+      const { id } = req.params
       const provider = req.body
-      if (!provider._id) {
+      if (!id) {
         res.status(400).json({ message: 'id is not found' })
       }
-      const updatedClient = await providerSchema.findByIdAndUpdate(provider._id, provider, { new: true })
+      const updatedClient = await providerSchema.findByIdAndUpdate(id, provider, { new: true })
       return res.json(updatedClient)
     } catch (e) {
       res.status(500).json(e.message)
@@ -48,6 +48,7 @@ class ProviderController {
       const provider = await providerSchema.findByIdAndDelete(id)
       return res.json(provider)
     } catch (e) {
+      console.log(e)
       res.status(500).json(e.message)
     }
   }

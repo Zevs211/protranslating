@@ -21,7 +21,6 @@ class ClientController {
   async getAll(req, res) {
     try {
       const clients = await clientsSchema.find().populate('providers').exec()
-      console.log(clients)
       return res.json(clients)
     } catch (e) {
       res.status(500).json(e.message)

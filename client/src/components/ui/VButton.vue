@@ -2,12 +2,12 @@
   <div
     type="button"
     class="
-      flex flex-row
-      justify-between
+      flex
       items-center
       rounded-md
       shadow-md
-      w-auto
+      w-min
+      whitespace-nowrap
       h-8
       px-5
       cursor-pointer

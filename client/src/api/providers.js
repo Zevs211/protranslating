@@ -9,9 +9,9 @@ export const postProvider = async (payload) => {
   await instance.post('api/providers', payload)
 }
 
-export const updateProvider = async (payload) => {
-  await instance.put('api/providers', payload)
-}
+export const updateProvider = async (id, payload) => {
+  await instance.put(`api/providers/${id}`, payload);
+};
 
 export const deleteProvider = async (id) => {
   await instance.delete(`api/providers/${id}`)
