@@ -17,7 +17,7 @@ app.use('/api-docs', SwaggerUI.serve, SwaggerUI.setup(SwaggerDocument));
 app.use('/api', router)
 
 app.get('/', (req, res) => {
-  res.status(200).json('Server is working123')
+  res.status(200).json('Server is working')
 })
 
 async function startApp() {
