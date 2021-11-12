@@ -36,14 +36,14 @@ class ClientController {
     }
   }
   async update(req, res) {
+    const { id } = req.params
     const { name, email, phone, providers } = req.body;
     try {
       validateClient({ name, email, phone });
-      const client = req.body
-      if (!client._id) {
+      if (!id) {
         res.status(400).json({ message: 'id is not found' })
       }
-      const updatedClient = await clientsSchema.findByIdAndUpdate(client._id, {
+      const updatedClient = await clientsSchema.findByIdAndUpdate(id, {
         $set: {
           name,
           email,

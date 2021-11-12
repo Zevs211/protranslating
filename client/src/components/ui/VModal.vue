@@ -38,7 +38,7 @@
         <slot />
       </div>
       <div class="flex justify-between items-center w-full py-2 px-4 border-t">
-        <v-button v-if="isNew === false" @click.native="onRemove" type="danger"
+        <v-button v-if="options.delete" @click.native="onRemove" type="danger"
           >delete</v-button
         >
         <div class="w-full flex justify-end items-center">
@@ -51,17 +51,20 @@
 </template>
 
 <script>
-import VButton from './ui/VButton.vue';
+import VButton from './VButton.vue';
 
 export default {
-  name: 'Modal',
+  name: 'VModal',
   components: {
     VButton,
   },
   props: {
-    isNew: {
-      type: Boolean,
-      default: true,
+    options: {
+      type: Object,
+      default: () => ({
+        delete: false,
+        action: 'create',
+      }),
     },
     isOpen: {
       type: Boolean,
@@ -74,8 +77,7 @@ export default {
       this.$emit('on-modal-close');
     },
     onSave() {
-      const eventName = this.isNew ? 'on-create' : 'on-update';
-      this.$emit(eventName);
+      this.$emit(`on-${this.options.action}`);
     },
     onCancel() {
       this.$emit('on-modal-close');

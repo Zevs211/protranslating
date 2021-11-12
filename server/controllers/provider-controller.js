@@ -29,11 +29,11 @@ class ProviderController {
   async update(req, res) {
     try {
       const { id } = req.params
-      const provider = req.body
+      const { name } = req.body
       if (!id) {
         res.status(400).json({ message: 'id is not found' })
       }
-      const updatedClient = await providerSchema.findByIdAndUpdate(id, provider, { new: true })
+      const updatedClient = await providerSchema.findByIdAndUpdate(id, { $set: { name } }, { new: true })
       return res.json(updatedClient)
     } catch (e) {
       res.status(500).json(e.message)

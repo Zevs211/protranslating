@@ -30,21 +30,21 @@
 </template>
 
 <script>
-import VButton from './ui/VButton.vue'
+import VButton from './ui/VButton.vue';
 
 export default {
   name: 'VTable',
   components: {
-    VButton
+    VButton,
   },
   props: {
     headers: {
       type: Array,
-      default: [],
+      default: () => [],
     },
     rows: {
       type: Array,
-      default: [],
+      default: () => [],
     },
   },
   methods: {
