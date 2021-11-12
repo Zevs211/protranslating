@@ -91,14 +91,6 @@ import {
 } from './api/providers';
 import VCheckboxList from './components/VCheckboxList.vue';
 
-const DEFAULT_CLIENT = {
-  _id: '',
-  name: '',
-  email: '',
-  phone: '',
-  providers: [], 
-};
-
 export default {
   components: {
     VTable,
@@ -111,7 +103,13 @@ export default {
     return {
       isModalOpened: false,
       isClientNew: true,
-      client: DEFAULT_CLIENT,
+      client: {
+        _id: '',
+        name: '',
+        email: '',
+        phone: '',
+        providers: [],
+      },
       headers: [
         {
           title: 'Name',
@@ -179,6 +177,13 @@ export default {
     onModalClose() {
       this.isModalOpened = false;
       this.newProviderName = '';
+      this.client = {
+        _id: '',
+        name: '',
+        email: '',
+        phone: '',
+        providers: [],
+      };
     },
     async createProvider() {
       await postProvider({
