@@ -1,8 +1,7 @@
 PROTRANSLATING TEST
 ***********************
 
-This project requires nodejs v16.13.0, npm v8.1.0 and mongodb v3.6.8
-
+This project requires nodejs v14+, and mongodb v3.6+
 
 
 SETUP PROJECT

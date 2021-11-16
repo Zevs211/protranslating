@@ -1,4 +1,4 @@
-import providerSchema from'../models/providers.js'
+import providerSchema from'../models/provider'
 
 class ProviderController {
   async create(req, res) {

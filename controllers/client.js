@@ -1,5 +1,5 @@
-import clientsSchema from '../models/clients.js'
-import validateClient from '../validators/client-validator.js'
+import clientsSchema from '../models/client'
+import { validateClient } from '../validator'
 
 class ClientController {
   async create(req, res) {

@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import clientController from '../controllers/client-controller.js'
-import providerController from '../controllers/provider-controller.js'
+import clientController from './controllers/client'
+import providerController from './controllers/provider'
 
 const router = Router()
 
