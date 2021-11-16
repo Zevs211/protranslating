@@ -1,6 +1,8 @@
-const { Schema, model } = require('mongoose');
+import mongoose from 'mongoose'
 
-const clients = new Schema({
+const { Schema, Types, model } = mongoose;
+
+const ClientSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -16,9 +18,9 @@ const clients = new Schema({
     unique: true,
   },
   providers: [{
-    type: Schema.Types.ObjectId,
+    type: Types.ObjectId,
     ref: 'providers',
   }],
-});
+}, { timestamps: true });
 
-module.exports = model('clients', clients);
+export default model('clients', ClientSchema);

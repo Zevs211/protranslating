@@ -1,7 +1,9 @@
-const { Schema, model } = require('mongoose')
+import mongoose from 'mongoose';
+
+const { Schema, model } = mongoose;
 
 const providers = new Schema({
   name: { type: String, required: true, unique: true }
-});
+}, { timestamps: true });
 
-module.exports = model('providers', providers);
+export default model('providers', providers);

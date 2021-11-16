@@ -1,4 +1,4 @@
-const providerSchema = require('../models/providers')
+import providerSchema from'../models/providers.js'
 
 class ProviderController {
   async create(req, res) {
@@ -54,4 +54,4 @@ class ProviderController {
   }
 }
 
-module.exports = new ProviderController();
+export default new ProviderController();

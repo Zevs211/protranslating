@@ -1,5 +1,5 @@
-const clientsSchema = require('../models/clients')
-const { validateClient } = require('../validators/client-validator')
+import clientsSchema from '../models/clients.js'
+import validateClient from '../validators/client-validator.js'
 
 class ClientController {
   async create(req, res) {
@@ -70,4 +70,4 @@ class ClientController {
   }
 }
 
-module.exports = new ClientController();
+export default new ClientController();
