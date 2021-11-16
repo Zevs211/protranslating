@@ -9,7 +9,7 @@ const SwaggerSchemaString = readFileSync(
   { encoding: 'utf-8' }
 );
 const PORT = 5000;
-const DB_URL = 'mongodb+srv://user:user@cluster0.h8e3c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const DB_URL = 'mongodb://localhost:27017/if_test_db';
 
 const app = express();
 
